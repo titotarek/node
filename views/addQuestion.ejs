@@ -1,0 +1,29 @@
+
+<%- include('./components/header') %>
+
+<H1>add question</H1>
+
+<form id="form" action="" method="POST">
+  <div class="mb-3">
+  <% if(typeof errors != "undefined"){ %>
+      <% errors.forEach((error) => { %>
+	  <div  class="alert alert-danger alert-dismissible fade show ms-1 me-1 mt-1 alert alert-msg" role="alert">
+	      <%= error.msg %>
+	      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>
+      <% })%>
+    <% } %>
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Question</label>
+    <input name="question" type="text" class="form-control" value="<%= typeof question != 'undefined' ? question : '' %>" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Description</label>
+    <input name="description"  type="text" class="form-control" value="<%= typeof description != 'undefined' ? description : '' %>" >
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<%- include('./components/footer') %>

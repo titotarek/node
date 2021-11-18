@@ -1,0 +1,7 @@
+<%- include('./components/header') %>
+
+<form action="/question/<%= answer._id %>/editAnswer" method="POST">
+	<input type="text" name="answer" id="answer" value="<%= answer.answer%>" placeholder="write you answer" style="width:  300px;">
+	<button class="btn btn-primary" type="submit" id="send-answer">Send Answer</button>
+    </form>
+    <%- include('./components/footer') %>

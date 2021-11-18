@@ -1,0 +1,22 @@
+<%- include('./components/header') %>
+
+
+<% if(question.length > 0 ){ %> 
+    <% question.forEach((question) => { %>
+    <div class="card" style="width: 18rem;">      
+        <div class="card-body">
+            <h5 class="card-title"><%= question.question %> </h5>
+            <p class="card-text"><%= question.description %> </p>
+            <p class="card-text text-muted"><strong>Created By : </strong> <%= question.user.userName %> </p>
+            <p class="card-text text-muted"><strong>Created At : </strong> <%= question.createdAt.toDateString() %> </p>
+            <a href="/question/<%= question._id%> " class="btn btn-primary">See More</a>
+        </div>
+    </div>
+    <% }) %>
+<%}else{ %> 
+    <p>no question to show</p>
+<%}%>
+
+
+<%- include('./components/footer') %>
+

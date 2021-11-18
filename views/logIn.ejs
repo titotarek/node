@@ -1,0 +1,29 @@
+
+<%- include('./components/header') %>
+
+  <H1>Hello log in</H1>
+
+<form id="form" action="/login" method="POST">
+    <div class="mb-3">
+    <% if(typeof errors != "undefined"){ %>
+        <% errors.forEach((error) => { %>
+            <div  class="alert alert-danger alert-dismissible fade show ms-1 me-1 mt-1 alert alert-msg" role="alert">
+                <%= error.msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% })%>
+      <% } %>
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input name="email" type="text" class="form-control" value="<%= typeof email != 'undefined' ? email : '' %>" >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input name="password"  type="text" class="form-control" value="<%= typeof password != 'undefined' ? password : '' %>" >
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<%- include('./components/footer') %>
